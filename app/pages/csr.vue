@@ -14,10 +14,10 @@
     </div>
     
     <div v-else-if="todos" class="todos-container">
-      <h2>Todos ({{ todos.total }} total)</h2>
+      <h2>Random Todos ({{ todos.length || 0 }} items)</h2>
       <div class="todos-grid">
         <div 
-          v-for="todo in todos.todos" 
+          v-for="todo in todos" 
           :key="todo.id" 
           class="todo-card"
           :class="{ completed: todo.completed }"
@@ -61,7 +61,7 @@ onMounted(async () => {
   
   try {
     loading.value = true
-    const response = await fetch('https://dummyjson.com/todos')
+    const response = await fetch('https://dummyjson.com/todos/random/3')
     
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)

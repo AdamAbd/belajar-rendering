@@ -14,14 +14,14 @@
     </div>
     
     <div v-else class="todos-container">
-      <h2>Todos ({{ data?.total }} total)</h2>
+      <h2>Random Todos ({{ data?.length || 0 }} items)</h2>
       <div class="build-info">
         <p><strong>Build Time:</strong> {{ buildTime }}</p>
         <p><em>This data was fetched at build time and is now served statically.</em></p>
       </div>
       <div class="todos-grid">
         <div 
-          v-for="todo in data?.todos" 
+          v-for="todo in data" 
           :key="todo.id" 
           class="todo-card"
           :class="{ completed: todo.completed }"
@@ -52,7 +52,7 @@ defineOptions({
 })
 
 // Build-time data fetching using useFetch
-const { data, pending, error } = await useFetch('https://dummyjson.com/todos')
+const { data, pending, error } = await useFetch('https://dummyjson.com/todos/random/3')
 
 // Generate build timestamp
 const buildTime = new Date().toLocaleString()
