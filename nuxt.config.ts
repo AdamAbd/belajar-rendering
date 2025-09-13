@@ -2,5 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint']
+  modules: ['@nuxt/eslint'],
+  routeRules: {
+    // Server-side rendering
+    '/ssr': { ssr: true },
+    // Client-side rendering
+    '/csr': { ssr: false },
+    // Prerendering
+    '/prerender': { prerender: true }
+  }
 })
