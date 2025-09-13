@@ -42,13 +42,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
-
-// Define component name to fix linter error
-defineOptions({
-  name: 'CsrPage'
-})
-
 // Reactive data
 const todos = ref(null)
 const loading = ref(true)

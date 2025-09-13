@@ -46,11 +46,6 @@
 </template>
 
 <script setup>
-// Define component name to fix linter error
-defineOptions({
-  name: 'PrerenderPage'
-})
-
 // Build-time data fetching using useFetch
 const { data, pending, error } = await useFetch('https://dummyjson.com/todos/random/3')
 
